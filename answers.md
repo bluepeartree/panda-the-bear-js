@@ -1,6 +1,6 @@
 1.
 
-body = document.body
+var body = document.body
 profilePicture = body.querySelector('img.profile-image');
 profilePicture.src ="https://placebear.com/400/400"
 
@@ -77,3 +77,49 @@ SubmitButton.disabled= true
 
 var PersonalInfo = body.querySelector('.bio-info')
 PersonalInfo.hidden = true
+
+
+PART II
+
+
+1.
+
+var timeTravel = body.querySelector('div#time-travel.bar-filled.highlight')
+timeTravel.remove();
+
+2.
+
+var pikachu = body.querySelector('#right-image > img')
+
+var pikaCopy = pikachu.cloneNode()
+
+var portfolioContainer = body.querySelector('body > section > div:nth-child(2) > div.portfolio-container')
+
+portfolioContainer.appendChild(pikaCopy)
+
+for (i= 1; i<=10; i++)
+{var pikaCopy = pikachu.cloneNode()
+portfolioContainer.insertAdjacentElement('beforeend', pikaCopy);}
+
+
+3.
+
+<!-- creating left hand side of new row  -->
+var listItem = document.createElement('li');
+var leftSpan = document.createElement('span');
+var lastUpdated = document.createTextNode('Page last updated on');
+
+leftSpan.appendChild(lastUpdated);
+
+listItem.appendChild(leftSpan);
+
+<!-- creating right hand side of new row -->
+var rightSpan = document.createElement('span');
+var d = new Date;
+var currentDate = document.createTextNode(d.toDateString());
+
+rightSpan.appendChild(currentDate);
+listItem.appendChild(rightSpan);
+
+var ulBio = body.querySelector('body > aside > ul')
+ulBio.appendChild(listItem)
